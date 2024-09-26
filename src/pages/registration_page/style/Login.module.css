@@ -1,0 +1,45 @@
+
+.influencer_login_form{
+    width: 100%;
+}
+.influencer_login_form_img {
+    width: 100%;
+    height: 100%;
+}
+.influencer_login_form_img img {
+    width: 100%;
+    height: 100%;
+}
+.influencer_login_form input {
+    width: 100%;
+    border: 1px solid #D3D3D3;
+    border-radius: 5px;
+    padding: 10px;  
+}
+.influencer_login_form input:hover {
+    width: 100%;
+    border: 1px solid #D3D3D3;
+    border-radius: 5px;
+}
+ 
+.login_btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border: none;
+    background: #2C3E50;
+    color: #ffff;
+    border-radius: 15px;
+    padding: 10px 0px;
+
+}
+.error_message{
+    color: red;
+}
+.signup_link_btn {
+    color: #00F0FF;
+}
+.blueColor{
+    color: #558eee;
+}

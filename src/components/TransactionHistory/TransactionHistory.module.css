@@ -1,0 +1,6 @@
+.transaction_details:hover{
+     box-shadow: 7px 7px 25px 0px #00000033;
+     transition: 0.5s;
+     cursor: pointer;
+
+ } 

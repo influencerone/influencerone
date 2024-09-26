@@ -1,0 +1,42 @@
+
+.organizer_card{
+     width: 100%;
+     box-shadow: 4px 4px 20px -1px #00000040;
+     border-radius: 20px;
+
+ }
+ .organizer_info{
+     width: 80%;
+ }
+ .organizer_info h3{
+     color: #2C3E50;   
+ }
+ .organizer_logo{
+     width: 20%;
+
+ }
+ .request_item_img  {
+     width: 100%;
+ }
+ .request_item_img img ,.organizer_logo img{
+     width: 100%;
+ }
+ .accept_btn ,.decline_btn{
+     border: 1px solid #0B953A;
+     color: #0B953A;
+     border-radius: 10px;
+     background-color: transparent;
+     margin-right: 10px;
+     font-size: 30px;
+     width: 50px;
+     height: 50px;
+ }
+ .decline_btn{
+     border: 1px solid #EA2B2B;
+     color: #EA2B2B;
+ }
+ .arrow_btn{
+     border: none;
+     font-size: 60px;
+     color: #6C6777; 
+ }

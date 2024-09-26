@@ -1,0 +1,28 @@
+
+.portfolio_heading{
+     width: 100%;
+     
+ }
+ .portfolio_heading input {
+     width: 100%;
+     /* border: none; */
+     border: 1px solid #D3D3D3;
+     outline: none;
+     border-radius: 10px;
+ }
+ .profile_link{
+     border-radius: 25px;
+     outline: none;
+     margin-top: 10px;
+ }
+
+
+ .brand_icon{
+     width: 60%;
+     display: flex;
+     flex-direction: column;
+     text-align: center  ;
+ }   
+ .brand_icon img {
+     width: 100%;
+ }  

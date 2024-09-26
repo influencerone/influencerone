@@ -1,0 +1,108 @@
+.container {
+     width: 100%;
+     max-width: 1200px;
+     margin: 0 auto;
+     padding: 20px;
+     font-family: Arial, sans-serif;
+ }
+  .tabs {
+     display: flex;
+     gap: 10px;
+     margin-bottom: 20px;
+     background-color: transparent;
+ }
+  
+ 
+ .tab {
+     padding: 10px 20px;
+     border: 1px solid #ccc;
+     cursor: pointer;
+     background-color: transparent;
+     border:none;
+ }
+ 
+ .tab.active {
+     border-bottom: 2px solid  #1ABC9C;
+ }
+ .active_influencer_card_sec{
+     display: grid;
+     grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+     grid-gap: 30px; 
+ }
+ 
+ 
+ .request_card {
+     border: 1px solid #ccc;
+     padding: 50px;
+     box-sizing: border-box;
+     flex-direction: column;
+     display: grid;
+     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+     grid-gap: 30px; 
+     border-radius: 20px;
+ }
+
+ .request_card:hover{
+     box-shadow: 7px 7px 25px 0px #00000033;
+ }
+ .request_card_heaader {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     gap: 10px;
+ }
+ 
+ .profile_pic {
+     width: 50px;
+     height: 50px;
+     border-radius: 50%;
+     background-color: #ccc;
+ }
+  
+ .request_card_footer {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+ }
+ 
+ .offer {
+     font-size: 1.2em;
+     color: green;
+ }
+ 
+ .status_button {
+     padding: 10px 20px;
+     border: none;
+     cursor: pointer;
+     width: 45%;
+     border-radius: 15px;
+ }
+ 
+ .status_button.requested {
+     background-color:  #D3D3D3;
+     color: white;
+ }
+ 
+ .status_button.approved {
+     background-color: #D8F7E2;
+     color: #10AC46;
+ }
+ 
+ .status_button.rejected {
+     background-color: #FFC3C3;
+     color: #EA2B2B;
+
+ }
+
+  .add_funds_button {
+     padding: 10px 20px;
+     border: none;
+     cursor: pointer;
+     width: 45%;
+     border-radius: 15px;
+     color: white;
+     background: #2C3E50;
+ }
+
+
+ 

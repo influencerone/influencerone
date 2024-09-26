@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice Login</title>
+    <!-- Add Font Awesome for the user icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/hi.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: visible;
+        }
+
+        .login-container {
+            background-color: #3f4c5a;
+            padding: 75px;
+            border-radius: 2px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            padding-left: 15px;
+            margin-top: 130px;
+        }
+
+        .login-container h1 {
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-group label {
+            margin-right: 10px;
+            color: white;
+            min-width: 100px;
+        }
+
+        .input-group input[type="text"],
+        .input-group input[type="file"],
+        .input-group select {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            margin-right: 10px;
+        }
+
+        .input-group input[type="checkbox"] {
+            margin-left: 10px;
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+            accent-color: #556877;
+        }
+
+        .input-group label[for="option1_checkbox"],
+        .input-group label[for="option2_checkbox"],
+        .input-group label[for="option3_checkbox"],
+        .input-group label[for="option4_checkbox"] {
+            margin-left: 5px;
+            color: white;
+        }
+
+        button {
+            background-color: #3f4c5a;
+            color: white;
+            border: 1px solid white;
+            border-radius: 3px;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-left: 15px;
+            margin-top: 5px;
+        }
+
+        button:hover {
+            background-color: #556877;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <i class="fas fa-plus"></i>
+        <h1>Add Question</h1>
+        <form id="questionForm" action="/admin/create-practice_questionimage" method="POST" enctype="multipart/form-data">
+    <div class="input-group">
+        <label for="question">Question:</label>
+        <input type="text" id="question" name="question" placeholder="Enter question" required>
+    </div>
+
+    <!-- Options with Checkboxes (Mutually Exclusive) -->
+    <div class="input-group">
+        <label for="option1">Option 1:</label>
+        <input type="text" id="option1" name="options[]" placeholder="Enter option 1" required>
+        <input type="checkbox" id="option1_checkbox" name="correct_option" value="0" onclick="selectOnlyOne(1)">
+        <label for="option1_checkbox">Is Correct</label>
+        <!-- Hidden input to store the correct answer status -->
+        <input type="hidden" id="option1_correct" name="correct_answers[]" value="0">
+    </div>
+
+    <div class="input-group">
+        <label for="option2">Option 2:</label>
+        <input type="text" id="option2" name="options[]" placeholder="Enter option 2" required>
+        <input type="checkbox" id="option2_checkbox" name="correct_option" value="0" onclick="selectOnlyOne(2)">
+        <label for="option2_checkbox">Is Correct</label>
+        <input type="hidden" id="option2_correct" name="correct_answers[]" value="0">
+    </div>
+
+    <div class="input-group">
+        <label for="option3">Option 3:</label>
+        <input type="text" id="option3" name="options[]" placeholder="Enter option 3" required>
+        <input type="checkbox" id="option3_checkbox" name="correct_option" value="0" onclick="selectOnlyOne(3)">
+        <label for="option3_checkbox">Is Correct</label>
+        <input type="hidden" id="option3_correct" name="correct_answers[]" value="0">
+    </div>
+
+    <div class="input-group">
+        <label for="option4">Option 4:</label>
+        <input type="text" id="option4" name="options[]" placeholder="Enter option 4" required>
+        <input type="checkbox" id="option4_checkbox" name="correct_option" value="0" onclick="selectOnlyOne(4)">
+        <label for="option4_checkbox">Is Correct</label>
+        <input type="hidden" id="option4_correct" name="correct_answers[]" value="0">
+    </div>
+
+    <div class="input-group">
+        <label for="explanation">Explanation:</label>
+        <input type="text" id="explanation" name="explanation" placeholder="Enter explanation" required>
+    </div>
+
+    <div class="input-group">
+        <label for="explanation_images">Explanation Image:</label>
+        <input type="file" id="explanation_images" name="explanation_images" required>
+    </div>
+
+    <div class="input-group">
+        <label for="question_image">Question Image:</label>
+        <input type="file" id="question_image" name="question_image" required>
+    </div>
+
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+    // JavaScript to ensure only one correct option is selected and set the correct answer values
+    function selectOnlyOne(selectedOption) {
+        // Uncheck all checkboxes and reset their hidden fields
+        for (let i = 1; i <= 4; i++) {
+            document.getElementById(`option${i}_checkbox`).checked = false;
+            document.getElementById(`option${i}_correct`).value = "0";
+        }
+
+        // Check the selected checkbox and set its hidden field value to 1
+        document.getElementById(`option${selectedOption}_checkbox`).checked = true;
+        document.getElementById(`option${selectedOption}_correct`).value = "1";
+    }
+    fetch('/admin/create-practice_questionimage', {
+        method: 'POST',
+        body: formData,
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
+</script>
+
+</body>
+</html>
